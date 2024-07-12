@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Reference Angles}{1}{}%
+\contentsline {section}{\numberline {2}Signs of Trigonometric Functions}{3}{}%
+\contentsline {section}{\numberline {3}Evaluating on intervals and Solving for Variables in Trigonometric Equations}{3}{}%
+\contentsline {section}{\numberline {4}Review of Linear Functions}{5}{}%
+\contentsline {section}{\numberline {5}Properties of Graphs}{6}{}%
+\contentsline {section}{\numberline {6}Absolute Value Equations}{6}{}%
+\contentsline {section}{\numberline {7}End Behaviors}{7}{}%
+\contentsline {section}{\numberline {8}Transformations of Functions}{7}{}%

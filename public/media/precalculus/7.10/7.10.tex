@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{float}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+\usepackage{graphicx}
+
+\usepackage{caption}
+\DeclareCaptionFormat{citation}{%
+  \ifx\captioncitation\relax\relax\else
+    \captioncitation\par
+  \fi
+  #1#2#3\par}
+\newcommand*\setcaptioncitation[1]{\def\captioncitation{\textit{Source:}~#1}}
+\let\captioncitation\relax
+\captionsetup{format=citation,justification=centering}
+
+
+\title{MATH1034OL1 Pre-Calculus Mathematics Notes from Sections 4.6, 2.4 (Wednesday)}
+\author{Elijah Renner}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5in}
+
+\tableofcontents
+
+\section{Determining Quadrants of Angles by Trigonometric Function Signs}
+
+For these problems, we approach them using our All Students Take Calculus (ASTC) rule. ASTC tells which trig functions are + in which quadrants. Refer to July 5th's notes for a description of it.\\
+
+Problem: given \(\sec\theta>0\) and \(\cot\theta<0\), which quadrant does \(\theta\) lie in?\\
+
+We know that \(\sec\) is the reciprocal of \(\cos\), meaning \(\theta\) can only be in quadrants one or four since it's given that  \(\sec\theta>0\) and \(\cos\) is positive in those quadrants by ASTC.\\
+
+We also know that \(\cot\), the reciprocal of \(\tan\), is only negative in quadrants two and four by ASTC.\\
+
+Only quadrant four satisfies both requirements. Hence, \(\theta\) is in quadrant four.\\
+
+\section{Rationalizing Irrational Numerators and Denominators}
+
+To rationalize the denominator of the expression
+\[
+\frac{3}{2 + \sqrt{5}},
+\]
+follow these steps:\\
+
+1. Identify the conjugate of the denominator. The denominator is \(2 + \sqrt{5}\). The conjugate is \(2 - \sqrt{5}\).\\
+
+2. Multiply the numerator and denominator by the conjugate:
+\[
+\frac{3}{2 + \sqrt{5}} \cdot \frac{2 - \sqrt{5}}{2 - \sqrt{5}}
+\]
+
+3. Simplify the expression. First, calculate the product in the denominator:
+\[
+(2 + \sqrt{5})(2 - \sqrt{5}) = 2^2 - (\sqrt{5})^2 = 4 - 5 = -1
+\]
+Thus, the expression becomes:
+\[
+\frac{3(2 - \sqrt{5})}{-1}
+\]
+Simplify:
+\[
+\frac{3(2 - \sqrt{5})}{-1} = -3(2 - \sqrt{5}) = -6 + 3\sqrt{5}
+\]
+
+\section{Function Operations}
+
+A key piece of notation: \((f \circ g)(x)=f(g(x))\). where \(f(g(x))\) represents inputting \(g\) as \(x\) in \(f(x)\).\\ 
+
+1. \textbf{Sum of Functions} \( (f + g)(x) \)
+   - \textbf{Domain}: The domain of \( (f + g)(x) \) is the intersection of the domains of \( f(x) \) and \( g(x) \):
+     \[
+     \text{Domain}(f + g) = \text{Domain}(f) \cap \text{Domain}(g)
+     \]
+
+2. \textbf{Difference of Functions} \( (f - g)(x) \)
+   - \textbf{Domain}: The domain of \( (f - g)(x) \) is the intersection of the domains of \( f(x) \) and \( g(x) \):
+     \[
+     \text{Domain}(f - g) = \text{Domain}(f) \cap \text{Domain}(g)
+     \]
+
+3. \textbf{Product of Functions} \( (f \cdot g)(x) \)
+   - \textbf{Domain}: The domain of \( (f \cdot g)(x) \) is the intersection of the domains of \( f(x) \) and \( g(x) \):
+     \[
+     \text{Domain}(f \cdot g) = \text{Domain}(f) \cap \text{Domain}(g)
+     \]
+
+4. \textbf{Quotient of Functions} \( \left( \frac{f}{g} \right)(x) \)
+   - \textbf{Domain}: The domain of \( \left( \frac{f}{g} \right)(x) \) is the intersection of the domains of \( f(x) \) and \( g(x) \), excluding the points where \( g(x) = 0 \):
+     \[
+     \text{Domain}\left( \frac{f}{g} \right) = \left( \text{Domain}(f) \cap \text{Domain}(g) \right) \setminus \{ x \mid g(x) = 0 \}
+     \]
+
+5. \textbf{Composition of Functions} \( (f \circ g)(x) \)
+   - \textbf{Domain}: The domain of \( (f \circ g)(x) \) is the set of all \( x \) in the domain of \( g(x) \) such that \( g(x) \) is in the domain of \( f(x) \):
+     \[
+     \text{Domain}(f \circ g) = \{ x \in \text{Domain}(g) \mid g(x) \in \text{Domain}(f) \}
+     \]
+     
+\section{Piecewise Functions}
+
+Define the piecewise function \( f(x) \) as follows:
+\[
+f(x) =
+\begin{cases}
+x^2 & \text{if } x < 0 \\
+2x + 1 & \text{if } 0 \leq x < 3 \\
+5 & \text{if } x \geq 3
+\end{cases}
+\]
+
+
+
+The \(x^{2}\), \(2x+1\), and \(5\) represent the value of \(f\) if the condition at right is met. For example, if \(x<0\), \(f(x)=x^{2}\).\\
+
+
+
+\end{document}
