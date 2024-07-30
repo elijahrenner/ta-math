@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{float}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\usepackage{caption}
+\DeclareCaptionFormat{citation}{%
+  \ifx\captioncitation\relax\relax\else
+    \captioncitation\par
+  \fi
+  #1#2#3\par}
+\newcommand*\setcaptioncitation[1]{\def\captioncitation{\textit{Source:}~#1}}
+\let\captioncitation\relax
+\captionsetup{format=citation,justification=centering}
+
+\title{MATH1034OL1 Pre-Calculus Mathematics Notes from Sections 5.4 (Monday)}
+\author{Elijah Renner}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5in}
+
+\tableofcontents
+
+\section{Exponential Growth and Decay with the Natural Base}
+
+Today's class only introduced the idea of exponential growth and decay, so I'll cover that here.\\
+
+We define the general equation for exponential growth as\\
+
+\[y(t)=ae^{kt}\]\\
+
+where \(y(t)\) is the value at time \(t\), \(a\) is the initial value, and \(k\) is the growth constant.\\
+
+Usually, we'll need to solve for \(k\) given information.\\
+
+Problem: when will a population reach 50000 people if there are 10000 people initially and triples every two years?\\
+
+Since the questions gives us the growth rate ("triples every two years"), we'll create the datapoint (2,30000) which repreesnts the population after two years.\\ 
+
+We'll then plug this and given information into our equation \(y(t)=ae^{kt}\) and solve for \(k\), the growth constant:\\
+
+\[30000=10000e^{2k}\]
+\[\implies 3=e^{2k}\]
+\[\implies \ln 3=\ln e^{2k}=2k\]
+\[\implies k=\frac{\ln 3}{2}\]\\
+
+Now we can write the population as an exponential function of time:\\
+
+\[y(t)=10000e^{kt}=10000e^{\frac{\ln 3}{2}t}\]\\
+
+The question asks for the time when the population \(y(t)\) is 50000, so we plug that in:\\
+
+\[50000=10000e^{\frac{\ln 3}{2}t}\]
+\[\implies 5=e^{\frac{\ln 3}{2}t}\]
+\[\implies \ln 5=\ln e^{\frac{\ln 3}{2}t}=\frac{\ln 3}{2}t}\]
+\[\implies t=\frac{\ln 5}{\left(\frac{\ln 3}{2}\right)}=\frac{2\ln 5}{\ln 3}}\text{ years}\]\\
+
+Also, \(e\) is the base since it's easily differentiable in calculus. I had to look this up because I was confused why we didn't use simple bases (like \(\frac{1}{2}\)) for half-life decay.\\
+
+Have a great week! 
+
+\end{document}
