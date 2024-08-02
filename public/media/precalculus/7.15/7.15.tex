@@ -1,17 +1,30 @@
 \documentclass[12pt]{article}
+
 \usepackage[utf8]{inputenc}
 \usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
 \usepackage{float}
+
 \setlength{\parindent}{0in}
 \setlength{\oddsidemargin}{0in}
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{8.8in}
 \setlength{\topmargin}{0in}
 \setlength{\headheight}{18pt}
-
-%%%%%%%%% IMAGES/FIGURES %%%%%%%%%
-
 \usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
 \usepackage{caption}
 \DeclareCaptionFormat{citation}{%
   \ifx\captioncitation\relax\relax\else
@@ -21,20 +34,6 @@
 \newcommand*\setcaptioncitation[1]{\def\captioncitation{\textit{Source:}~#1}}
 \let\captioncitation\relax
 \captionsetup{format=citation,justification=centering}
-
-%%%%%%%%% LINKS %%%%%%%%%
-
-\usepackage{breakurl}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={Overleaf Example},
-    pdfpagemode=FullScreen,
-    }
-\urlstyle{same}
 
 \title{MATH1034OL1 Pre-Calculus Mathematics Notes from Sections 4.7, 3.2 (Monday)}
 \author{Elijah Renner}
@@ -56,7 +55,7 @@ We first derive the identity \(\cos^2\theta + \sin^2\theta = 1\) from the unit c
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Pythagorean Identity.png}
-	\caption{Credit: https://trigidentities.info/pythagorean-trig-identities/}
+	\caption{Credit: \url{https://trigidentities.info/pythagorean-trig-identities/}}
 \end{figure}
 
 Then, the other two Pythagorean identities are derived by dividing by either \(\cos^2\) or \(\sin^2\):\\
@@ -235,7 +234,7 @@ Conversely, if \((x-a)\) appears an odd amount of times, the function will cross
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{Polynomial touching.png}
-	\caption{Credit: https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:poly-graphs/x2ec2f6f830c9fb89:poly-intervals/a/zeros-of-polynomials-and-their-graphs}
+	\caption{Credit: \url{https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:poly-graphs/x2ec2f6f830c9fb89:poly-intervals/a/zeros-of-polynomials-and-their-graphs}}
 \end{figure}
 
 In class, we reviewed the end behaviors of polynomials. I've already recorded them in the notes from July 5th. Good luck on Friday!
