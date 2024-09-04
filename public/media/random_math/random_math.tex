@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, latexsym}
+\usepackage{float}
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+%%%%%%%%% IMAGES/FIGURES %%%%%%%%%
+
+\usepackage{graphicx}
+\usepackage{caption}
+\DeclareCaptionFormat{citation}{%
+  \ifx\captioncitation\relax\relax\else
+    \captioncitation\par
+  \fi
+  #1#2#3\par}
+\newcommand*\setcaptioncitation[1]{\def\captioncitation{\textit{Source:}~#1}}
+\let\captioncitation\relax
+\captionsetup{format=citation,justification=centering}
+
+%%%%%%%%% LINKS %%%%%%%%%
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+
+\title{Random Math}
+\author{Elijah Renner}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5in}
+
+\tableofcontents
+
+\section{Injectivity and Surjectivity}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{maxresdefault.jpg}
+\end{figure}
+
+\section{Probability Notation}
+
+\(P(A|B)\) represents the probability of \(A\) occuring given \(B\).
+
+\end{document}

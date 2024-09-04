@@ -1,0 +1,237 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{float}
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+%%%%%%%%% IMAGES/FIGURES %%%%%%%%%
+
+\usepackage{graphicx}
+\usepackage{caption}
+\DeclareCaptionFormat{citation}{%
+  \ifx\captioncitation\relax\relax\else
+    \captioncitation\par
+  \fi
+  #1#2#3\par}
+\newcommand*\setcaptioncitation[1]{\def\captioncitation{\textit{Source:}~#1}}
+\let\captioncitation\relax
+\captionsetup{format=citation,justification=centering}
+
+%%%%%%%%% LINKS %%%%%%%%%
+
+\usepackage{breakurl}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+
+\title{Linear Algebra}
+\author{Elijah Renner}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5in}
+
+\tableofcontents
+
+\section{Basis Vectors}
+
+The standard basis vectors in three dimensions and their coordinates are:\\
+\[
+\hat{\mathbf{i}} = (1, 0, 0), \quad \hat{\mathbf{j}} = (0, 1, 0), \quad \hat{\mathbf{k}} = (0, 0, 1)
+\]
+
+\[
+\hat{\mathbf{i}} = 
+\begin{bmatrix}
+1\\
+0\\
+0	
+\end{bmatrix}
+, \quad \hat{\mathbf{j}} = \begin{bmatrix}
+ 0\\
+ 1\\
+ 0	
+ \end{bmatrix}
+, \quad \hat{\mathbf{k}} = 
+\begin{bmatrix}
+0\\
+0\\
+1	
+\end{bmatrix}\]
+
+This means they can also be expressed as 3D vectors. We say a vector is \(n-\)dimensional if it has \(n\) entries. We can also indicate a vector \(\vec{v}\) is \(n-\)dimensional by saying \(\vec{v}\in\mathbb{R}^n\). Here, our basis vectors are in \(\mathbb{R}^3\).\\
+
+Let's expand our definition of standard basis vectors to \(\mathbb{R}^n\):\\
+
+Consider a vector \(\vec{v}\) in \(\mathbb{R}^n\). The standard basis vectors in \(\mathbb{R}^n\) are:
+\[
+\vec{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad
+\vec{e}_2 = \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \ldots, \quad
+\vec{e}_n = \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}.
+\]
+
+\section{Matrices as Linear Transformations}
+
+Let \( T: \mathbb{R}^n \to \mathbb{R}^m \) be a linear transformation. The matrix \( A \in \mathbb{R}^{m \times n} \) representing \( T \) can be formed as follows:
+
+\begin{itemize}
+    \item Let \( \{ \vec{e}_1, \vec{e}_2, \ldots, \vec{e}_n \} \) be the standard basis vectors in \(\mathbb{R}^n\).
+    \[
+    \vec{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad
+    \vec{e}_2 = \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \ldots, \quad
+    \vec{e}_n = \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}.
+    \]
+
+    \item Apply the linear transformation \( T \) to each basis vector:
+    \[
+    T(\vec{e}_1), T(\vec{e}_2), \ldots, T(\vec{e}_n).
+    \]
+
+    \item Form the matrix \( A \) by placing the transformed basis vectors as columns:
+    \[
+    A = \begin{pmatrix} | & | & & | \\
+    T(\vec{e}_1) & T(\vec{e}_2) & \cdots & T(\vec{e}_n) \\
+    | & | & & | \end{pmatrix}.
+    \]
+
+    \item The \( i \)-th column of \( A \) is \( T(\vec{e}_i) \).
+
+    \item For any vector \(\vec{x} \in \mathbb{R}^n\),
+    \[
+    \vec{x} = x_1 \vec{e}_1 + x_2 \vec{e}_2 + \cdots + x_n \vec{e}_n,
+    \]
+    we have:
+    \[
+    T(\vec{x}) = T(x_1 \vec{e}_1 + x_2 \vec{e}_2 + \cdots + x_n \vec{e}_n) = x_1 T(\vec{e}_1) + x_2 T(\vec{e}_2) + \cdots + x_n T(\vec{e}_n).
+    \]
+    This is equivalent to:
+    \[
+    T(\vec{x}) = A \vec{x}.
+    \]
+\end{itemize}
+
+\section{Linear Combinations}
+
+Any vector \(\vec{v} \in \mathbb{R}^n\) with components \((v_1, v_2, \ldots, v_n)\) can be written as:
+\[
+\vec{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}.
+\]
+
+This vector can be expressed as a linear combination of the basis vectors:
+
+\[
+\vec{v} = v_1 \vec{e}_1 + v_2 \vec{e}_2 + \cdots + v_n \vec{e}_n.
+\]
+
+For example, in \(\mathbb{R}^3\), the vector \(\vec{v}\) with components \((v_1, v_2, v_3)\) can be written as:
+\[
+\vec{v} = \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} = v_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + v_2 \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} + v_3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
+\]
+
+\section{Span of Vectors}
+
+The span of a set of vectors is the set of all possible linear combinations of those vectors. If you have a set of vectors \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}\), the span of these vectors is denoted as \(\text{span}(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k)\) and is defined as:
+\[
+\text{span}(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k) = \left\{ a_1 \vec{v}_1 + a_2 \vec{v}_2 + \cdots + a_k \vec{v}_k \mid a_1, a_2, \ldots, a_k \in \mathbb{R} \right\}.
+\]
+This set includes all vectors that can be formed by taking linear combinations of \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\).\\
+
+Note: if two vectors \(\vec{v}\) and \(\vec{k}\) are colinear, their span is a line.
+
+\section{Colinearity}
+
+A vector \(\vec{v}\) is colinear with \(\vec{k}\) if \(\vec{v}=a\vec{k}\) for some scalar \(a\).
+
+\section{Linear Independence and Dependence}
+
+\subsection{Linear Independence}
+A set of vectors \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}\) is said to be linearly independent if no vector in the set can be written as a linear combination of the others. Formally, the vectors are linearly independent if the only solution to the equation
+\[
+a_1 \vec{v}_1 + a_2 \vec{v}_2 + \cdots + a_k = \vec{0}
+\]
+is \(a_1 = a_2 = \cdots = a_k = 0\). This means that the only way to get the zero vector using a linear combination of \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\) is by setting all the coefficients to zero.
+
+\subsection{Linear Dependence}
+A set of vectors \(\{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\}\) is said to be linearly dependent if at least one vector in the set can be written as a linear combination of the others. Formally, the vectors are linearly dependent if there exists a non-trivial solution (that is, a nonzero one) to the equation
+\[
+a_1 \vec{v}_1 + a_2 \vec{v}_2 + \cdots + a_k \vec{v}_k = \vec{0}.
+\]
+This means that there are some non-zero coefficients that can be used to express the zero vector as a linear combination of \(\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k\).
+
+\section{Row Operations of Matrices}
+
+Row operations are used to manipulate matrices, especially for solving linear systems and performing Gaussian elimination. There are three types of row operations:
+
+\begin{enumerate}
+    \item \textbf{Row Switching:} Swap the positions of two rows. Symbol: \(\iff\)\\
+    Example: Switch row \(i\) with row \(j\).
+    \[
+    \begin{pmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+    \end{pmatrix}
+    \xrightarrow{\text{switch } R_1 \text{ and } R_2}
+    \begin{pmatrix}
+    4 & 5 & 6 \\
+    1 & 2 & 3 \\
+    7 & 8 & 9
+    \end{pmatrix}
+    \]
+
+    \item \textbf{Row Multiplication:} Multiply all elements of a row by a nonzero scalar.\\
+    Example: Multiply row \(i\) by \(c \neq 0\).
+    \[
+    \begin{pmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+    \end{pmatrix}
+    \xrightarrow{\text{multiply } R_2 \text{ by } 2}
+    \begin{pmatrix}
+    1 & 2 & 3 \\
+    8 & 10 & 12 \\
+    7 & 8 & 9
+    \end{pmatrix}
+    \]
+
+    \item \textbf{Row Addition:} Add or subtract the elements of one row to/from another row.\\
+    Example: Add \(c\) times row \(i\) to row \(j\).
+    \[
+    \begin{pmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+    \end{pmatrix}
+    \xrightarrow{\text{add } 2R_1 \text{ to } R_2}
+    \begin{pmatrix}
+    1 & 2 & 3 \\
+    6 & 9 & 12 \\
+    7 & 8 & 9
+    \end{pmatrix}
+    \]
+\end{enumerate}
+
+\section{Matrix Multiplication}
+
+When multiplying matrix \(B\) by matrix \(A\) (\(AB\)), \(A\) must have the same number of columns as the number of rows in \(B\). \\
+
+\[\url{http://matrixmultiplication.xyz/}\]
+
+\section{Eigenvectors and Eigenvalues}
+
+\end{document}
