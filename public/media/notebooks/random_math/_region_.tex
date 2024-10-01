@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\message{ !name(random_math.tex)}\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amsfonts, amssymb, amsthm, latexsym}
 \usepackage{float}
@@ -40,6 +40,9 @@
 
 \begin{document}
 
+\message{ !name(random_math.tex) !offset(-3) }
+
+
 \maketitle
 
 \vspace{0.5in}
@@ -50,11 +53,30 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{maxresdefault.jpg}
+	\includegraphics[scale=0.3]{media/maxresdefault.jpg}
 \end{figure}
 
-\section{Probability Notation}
+\section{Probability Notations}
 
-\(P(A|B)\) represents the probability of \(A\) occuring given \(B\).
+The notation \(P(A)\) represents the probability that event \(A\) will occur.\\
+
+\(P(A|B)\) represents the probability of \(A\) occuring given \(B\).\\
+
+\(P(A')\) represents the probability of the complement of \(A\).
+occuring.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{media/compliment.png}
+\end{figure}
+
+\section{Binomial Coefficients}
+
+\({n}\choose{k}\)
+
+
+
 
 \end{document}
+
+\message{ !name(random_math.tex) !offset(-82) }
