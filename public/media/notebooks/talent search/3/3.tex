@@ -1,0 +1,216 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\usepackage{lmodern}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz}
+\usepackage{xfrac}
+
+\definecolor{mypink}{RGB}{255, 105, 180}
+\definecolor{mydarkpink}{RGB}{199, 21, 133}
+\definecolor{mygray}{RGB}{80, 80, 80}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=mydarkpink,
+    urlcolor=mydarkpink,
+    citecolor=mydarkpink
+}
+
+
+\def\HS{\hspace{\fontdimen2\font}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{mygray}{Elijah's Math Notes}}
+\fancyhead[R]{\textcolor{mygray}{\thepage}}
+\fancyfoot[C]{\textcolor{mygray}{Prepared by Elijah}}
+
+\usepackage{titling}
+\pretitle{\begin{center}\Large\color{mypink}}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\large\color{mygray}}
+\postauthor{\par\end{center}}
+\predate{\begin{center}\small\color{mygray}}
+\postdate{\par\end{center}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\todo}[1]{\textcolor{mydarkpink}{\textbf{TODO:} #1}}
+\newcommand{\highlight}[1]{\textcolor{mypink}{#1}}
+
+\renewcommand{\theenumi}{\Alph{enumi}}
+
+\definecolor{subtleRed}{RGB}{255, 66, 66}
+
+\title{Vermont State Mathematics Coalition Talent Search Test \#3}
+\author{Elijah Renner}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Problem \#1}
+
+\subsection{a} 
+
+\paragraph{Problem} What is the smallest positive integer greater than 120 that has the same set of prime divisors as 120?
+
+\paragraph{Solution} The prime divisors of 120 are \(2,3,5\). So, we're looking for the smallest number in the form \(2^a3^b5^c\neq120\) with \(a,b,c\geqslant1\). Testing options:
+
+\begin{center}
+\begin{tabular}{c|c}
+\colorbox{subtleRed}{\(\displaystyle 2^23^15^1 = 60\)} & \(\ngtr 120\) \\
+\colorbox{subtleRed}{\(\displaystyle 2^13^25^1 = 90\)}  & \(\ngtr 120\) \\  
+\colorbox{green}{\(\displaystyle 2^13^15^2 = 150\)} & \(>120\)  
+\end{tabular}
+\end{center}
+
+The smallest valid number is \(150\). To confirm \(150\) is optimal:
+
+- Increasing \(a\) in \(2^a3^b5^c\) leads to numbers like \(240\) (\(a = 3, b = 1, c = 1\)).\\
+- Increasing \(b\) leads to \(270\) (\(a = 1, b = 3, c = 1\)).\\
+- Increasing \(c\) leads to \(375\) (\(a = 1, b = 1, c = 3\)).
+
+Thus, no number \(120 < 2^a3^b5^c < 150\) exists, and the solution is \fbox{150}.
+
+\subsection{b}
+
+\paragraph{Problem} Let \(A\) be the answer to part (a). Evan writes the integers \(1,2,3,...,A-1\) on a blackboard. He circles two of these integers and multiplies them to get a product \(P\). If \(P\) is also equal to the sum of the other \(A-3\) integers that Evan didn't circle, what is the value of the smaller of the two circled integers? 
+
+\paragraph{Solution} \(A=150\implies A-1=149\). Let \(a\) and \(b\) denote the two chosen integers with \(a<b\). The sum of all integers is then \(1+2+3+...+149-(a+b)=11175-(a+b)\). Which is equal to the product \(P=ab=11175-(a+b)\implies ab+(a+b)+1=(a+1)(b+1)=11176\). Factorizing, \(11176=2^3\cdot11\cdot127\). The only factor pair \((a+1,b+1)\) of 11176 with 1\leqslant a<b\leqslant149\) is \((88,127)\). All other factor pairs have at least one factor outside \([1,149]\). So, letting \(a+1=88\), \(a\), the smaller of the two integers, is \fbox{87}.   
+
+\subsection{c}
+
+\paragraph{Problem} Let \(B\) be the answer to part (b). Kiran buys a total of \(B-3\) cases of batteries for his automatic grading machine, which uses 6 batteries at a time. Each case has 24 boxes in it, and each box has 12 batteries in it. In each box, \(\sfrac{1}{4}\) of the batteries are defective and do not work at all, while the remaining batteries will provide power for 30 minutes each. For how many total weeks will Kiran be able to use his grading machine, assuming the batteries are in constant use?
+
+\paragraph{Solution} \(B=87\), so Kiran buys \(B-3=84\) cases of batteries. The total number of batteries is \[84\text{ cases}\cdot24\text{ boxes}\cdot12\text{ batteries}=24192\] of which \(\sfrac{3}{4}(24192)=18144\) are functioning. Since \(6\) batteries can be used simultaneously for 30 minutes, the number of uses is \(\frac{18144}{6}=3024\). And the duration of these uses is \[(3024\text{ uses}\cdot30\text{ minutes})\cdot\frac{\text{hour}}{\text{60 minutes}}\cdot\frac{\text{day}}{\text{24 hours}}\cdot\frac{\text{week}}{\text{7 days}}=\fbox{\(9\text{ weeks}\)}
+\]
+
+\section{Problem \#2} 
+
+\paragraph{Problem} In triangle \(ABC\), there exist points \(D,E,F\) on side \(BC\) (in that order from \(B\) to \(C\)) and points \(G,H,I\) on side \(AC\) (in that order from \(A\) to \(C\)) such that \(AB=AD=BG=CF=CI=DH=EI=EG=FH=1\). Find the degree of measure \(\angle ABC\).
+
+\paragraph{Solution} The string of unit segments \(AB=AD=BG=CF=CI=DH=EI=EG=FH=1\) form (or imply) equilateral triangles within \(\triangle ABC\). Given this, it's reasonable to test \(\angle ABC=60^{\circ}\) as a likely candidate. 
+
+\section{Problem \#3}
+
+\paragraph{Problem} Checkers are placed on a \(45\times45\) gameboard, with \(1,2,3,...,45\) checkers in the squares in the top row (from left to right), \(46,47,...,90\) in the next row (left to right), and so forth, with \(1981,1982,...,2025\) checkers in the bottom row (left to right). Evan then performs a series of moves, each move consisting of adding or removing one checker from all squares in any \(2\times3,3\times2,\text{or }4\times4\) rectangular region on the board. After a sequence of these moves, only one square has checkers remaining. Determine all possible values for the number of checkers remaining on that square?
+
+\paragraph{Solution}
+
+\section{Problem \#4}
+
+\paragraph{Problem} For two quadratic polynomials \(f_1(x)=a_1x^2+b_1x+c_1\) and \(f_2(x)=a_2x^2+b_2x+c_2\), we define their coefficient distance to be \(\max(|a_1-a_2|, |b_1-b_2|, |c_1-c_2|)\). For example, the coefficient distance between \(2x^2+x-3\) and \(x^2+3x-1\) is \(\max(|2-1|, |1-3|, |-3-(-1)|)=2\). If \(S\) is the set of all quadratic polynomials whose roots are real numbers, find the minimum possible coefficient distance between \(20x^2+25x+52\) and a polynomial in \(S\). \
+
+\paragraph{Solution} Let \(p(x)=Ax^2+Bx+C\)
+
+Let \(p(x) = Ax^2 + Bx + C\) be a quadratic polynomial with real roots. The discriminant of \(p(x)\) must satisfy \(\Delta = B^2 - 4AC \geq 0\). To minimize the coefficient distance, set \(A = 20 - \delta, \quad B = 25 + \delta, \quad C = 52 - \delta\) so that the discriminant grows most efficiently. To show that this is the optimal setup for growth of \(\Delta\), note that increasing \(B\) increases \(\Delta\) since \(B^2\) appears positively. Alternatively, \(4AC\) appears negatively. Therefore, minimizing \(4AC\) is optimal, so we want to decrease \(A\) and \(C\).
+
+With the optimal setup established, we can rewrite the discriminant \(\Delta = (B)^2 - 4(A)(C) = (25 + \delta)^2 - 4(20 - \delta)(52 - \delta).\)
+Expanding each term and simplifying, \(\Delta = -3535 + 338\delta - 3\delta^2.\) In order for \(p(x)\) to have real roots, \(\Delta \geq 0\), so \(-3535 + 338\delta - 3\delta^2 \geq 0.\implies 3\delta^2 - 338\delta + 3535 \leq 0.\)
+Solve the quadratic inequality:
+\[
+\delta = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \quad a = 3, \, b = -338, \, c = 3535.
+\]
+\[
+\delta = \frac{338 \pm \sqrt{338^2 - 4(3)(3535)}}{6} = \frac{338 \pm \sqrt{114244 - 42420}}{6} = \frac{338 \pm \sqrt{71824}}{6}.
+\]
+\[
+\sqrt{71824} = 268, \quad \delta = \frac{338 \pm 268}{6}.
+\]
+The two solutions are
+\[
+\delta = \frac{338 + 268}{6} = \frac{606}{6} = 101, \quad \delta = \frac{338 - 268}{6} = \frac{70}{6} = \frac{35}{3}.
+\]
+Since \(\delta\) must be minimized, choose \(\delta = \boxed{\frac{35}{3}}\) as the minimum possible coefficient distance between \(20x^2+25x+52\) and a polynomial in \(S\).
+
+\section{Problem \#5}
+
+Recall the Fibonacci numbers \(F_1,F_2,\ldots\) are defined by \(F_1=F_2=1\) and \(F_{n+1}=F_n+F_{n-1}\) for \(n\geq 2\). Find an ordered triple \((a,b,c)\) of integers with \(|a|,|b|,|c|<10{,}000{,}000\) such that 
+\[
+S = \sum_{i=1}^{2025} i^2 F_i = aF_{2027} + bF_{2026} + c.
+\]
+We have \(S(n) = \sum_{i=1}^{n} i^2 F_i = (n^2 - 2n + 5)F_{n+2} + (3 - 2n)F_{n+1} - 8\). 
+
+\textbf{Solution 1: Derivation} Define \(S(n) = \sum_{i=1}^{n} i^2 F_i\). Using the Fibonacci recurrence \(F_i = F_{i+2} - F_{i+1}\), we rewrite each term as \(i^2 F_i = i^2(F_{i+2} - F_{i+1})\), leading to
+\[
+S(n) = \sum_{i=1}^{n} i^2 F_{i+2} - \sum_{i=1}^{n} i^2 F_{i+1}.
+\]
+Shifting indices, this becomes 
+\[
+S(n) = \sum_{k=3}^{n+2} (k-2)^2 F_k - \sum_{k=2}^{n+1} (k-1)^2 F_k.
+\]
+Extracting \(n^2F_{n+2}\), we have 
+\[
+S(n) = \sum_{k=2}^{n+1} \left[(k-2)^2 - (k-1)^2\right] F_k + n^2 F_{n+2} = \sum_{k=2}^{n+1} (-2k + 3) F_k + n^2 F_{n+2}.
+\]
+Splitting the sum, 
+\[
+S(n) = -2 \sum_{k=2}^{n+1} k F_k + 3 \sum_{k=2}^{n+1} F_k + n^2 F_{n+2}.
+\]
+Using the identities \(\sum_{k=1}^{m} F_k = F_{m+2} - 1\) and \(\sum_{k=1}^{m} k F_k = m F_{m+2} - F_{m+3} + 2\), we find
+\[
+\sum_{k=2}^{n+1} F_k = F_{n+3} - 2 \quad \text{and} \quad \sum_{k=2}^{n+1} k F_k = (n+1)F_{n+3} - F_{n+4} + 1.
+\]
+Substituting back, 
+\[
+S(n) = -2\left((n+1)F_{n+3} - F_{n+4} + 1\right) + 3(F_{n+3} - 2) + n^2 F_{n+2} = (n^2 - 2n + 5)F_{n+2} + (3 - 2n)F_{n+1} - 8.
+\]
+
+\textbf{Solution 2: Induction} We prove \(S(n) = (n^2 - 2n + 5)F_{n+2} + (3 - 2n)F_{n+1} - 8\) by induction. For \(n=1\), \(S(1)=1\) and the formula yields \(1\), so the base case holds. Assume it holds for \(n=k\). Then,
+\[
+S(k+1) = S(k) + (k+1)^2 F_{k+1} = (k^2 - 2k + 5)F_{k+2} + (3 - 2k)F_{k+1} - 8 + (k+1)^2 F_{k+1}.
+\]
+Factoring and rearranging,
+\[
+S(k+1) = (k^2 - 2k + 5)F_{k+2} + (k^2 + 4)F_{k+1} - 8.
+\]
+Using \(F_{k+1} = F_{k+3} - F_{k+2}\),
+\[
+S(k+1) = (k^2 - 2k + 5)F_{k+2} + (k^2 + 4)(F_{k+3} - F_{k+2}) - 8 = (k^2 + 4)F_{k+3} + (1 - 2k)F_{k+2} - 8,
+\]
+which matches the formula for \(n=k+1\). Thus, by the principle of mathematical induction, the formula holds for all \(n\).
+
+\noindent\rule{16cm}{0.4pt}
+
+For \(n = 2025\), compute \(a = n^2-2n+5=2025^2 - 2 \times 2025 + 5 = 4{,}096{,}580\) and \(b = 3-2n=3 - 2 \times 2025 = -4{,}047\), yielding the ordered triple \(\boxed{(a,b,c)=(4096580,\,-4047,\,-8)}\).
+
+\section{Problem \#6}
+
+\paragraph{Problem} If \(N\) is a positive integer, a chop of \(N\) is obtained by introducing one or more plus signs between the digits of \(N\), and adding the results. For example, two possible chops of 12345 are \(123+45=168\) and \(1+2+3+4+5=15\).
+
+\begin{enumerate}[label=(\alph*)]
+	\item If \(n\) is divisible by 2,3,5, or 7, show that there exists a \(2n\)-digit integer \(N\) with nonzero digits such that no chop of \(N\) is divisible by \(n\).
+	\item If \(N\) is a \(2n\)-digit integer with nonzero digits, and \(n\) is not divisible by 2,3,5, or 7, show that there is some chop of \(N\) that is divisible by \(n\).
+\end{enumerate}
+
+
+\paragraph{Proof} 
+
+\end{document}
