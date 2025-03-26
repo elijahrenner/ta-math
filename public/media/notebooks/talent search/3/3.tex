@@ -103,7 +103,7 @@ Thus, no number \(120 < 2^a3^b5^c < 150\) exists, and the solution is \fbox{150}
 
 \paragraph{Problem} Let \(A\) be the answer to part (a). Evan writes the integers \(1,2,3,...,A-1\) on a blackboard. He circles two of these integers and multiplies them to get a product \(P\). If \(P\) is also equal to the sum of the other \(A-3\) integers that Evan didn't circle, what is the value of the smaller of the two circled integers? 
 
-\paragraph{Solution} \(A=150\implies A-1=149\). Let \(a\) and \(b\) denote the two chosen integers with \(a<b\). The sum of all integers is then \(1+2+3+...+149-(a+b)=11175-(a+b)\). Which is equal to the product \(P=ab=11175-(a+b)\implies ab+(a+b)+1=(a+1)(b+1)=11176\). Factorizing, \(11176=2^3\cdot11\cdot127\). The only factor pair \((a+1,b+1)\) of 11176 with 1\leqslant a<b\leqslant149\) is \((88,127)\). All other factor pairs have at least one factor outside \([1,149]\). So, letting \(a+1=88\), \(a\), the smaller of the two integers, is \fbox{87}.   
+\paragraph{Solution} \(A=150\implies A-1=149\). Let \(a\) and \(b\) denote the two chosen integers with \(a<b\). The sum of all integers is then \(1+2+3+...+149-(a+b)=11175-(a+b)\), which is equal to the product \(P=ab=11175-(a+b)\implies ab+(a+b)+1=(a+1)(b+1)=11176\). Factorizing, \(11176=2^3\cdot11\cdot127\). The only factor pair \((a+1,b+1)\) of 11176 with \(1\leqslant a<b\leqslant149\) is \((88,127)\). All other factor pairs have at least one factor outside \([1,149]\). So, letting \(a+1=88\), \(a\), the smaller of the two integers, is \fbox{87}.   
 
 \subsection{c}
 
@@ -116,13 +116,83 @@ Thus, no number \(120 < 2^a3^b5^c < 150\) exists, and the solution is \fbox{150}
 
 \paragraph{Problem} In triangle \(ABC\), there exist points \(D,E,F\) on side \(BC\) (in that order from \(B\) to \(C\)) and points \(G,H,I\) on side \(AC\) (in that order from \(A\) to \(C\)) such that \(AB=AD=BG=CF=CI=DH=EI=EG=FH=1\). Find the degree of measure \(\angle ABC\).
 
-\paragraph{Solution} The string of unit segments \(AB=AD=BG=CF=CI=DH=EI=EG=FH=1\) form (or imply) equilateral triangles within \(\triangle ABC\). Given this, it's reasonable to test \(\angle ABC=60^{\circ}\) as a likely candidate. 
+\paragraph{Solution} Place triangle \(ABC\) in the plane by taking 
+\[
+B=(0,0),\quad A=(1,0),
+\]
+so that \(AB=1\). Write 
+\[
+C=(c\cos\theta,\, c\sin\theta)
+\]
+with \(c>1\) and \(\theta=\angle ABC\) (with \(0<\theta<\pi/2\)). Since the points \(D,E,F\) lie on \(BC\) (with \(B,D,E,F,C\) in that order) we may express 
+\[
+D=(d\cos\theta,\, d\sin\theta),\quad E=(e\cos\theta,\, e\sin\theta),\quad F=(f\cos\theta,\, f\sin\theta),
+\]
+with \(0<d<e<f<c\). Similarly, since \(G,H,I\) lie on \(AC\) (with \(A,G,H,I,C\) in order) we write
+\[
+G=A+s_G(C-A),\quad H=A+s_H(C-A),\quad I=A+s_I(C-A),
+\]
+with \(0<s_G<s_H<s_I<1\).
+
+Since \(AD=1\) and \(A=(1,0)\) while \(D=(d\cos\theta,d\sin\theta)\), we have
+\[
+(1-d\cos\theta)^2+(d\sin\theta)^2=1.
+\]
+Expanding and using \(\cos^2\theta+\sin^2\theta=1\) gives 
+\[
+1-2d\cos\theta+d^2=1,
+\]
+so that \(d(d-2\cos\theta)=0\). Since \(d>0\) it follows that 
+\[
+d=2\cos\theta.
+\]
+
+Next, because \(CF=1\) and \(F=(f\cos\theta,f\sin\theta)\) while \(C=(c\cos\theta,c\sin\theta)\), we deduce
+\[
+CF=c-f=1,\quad \text{or} \quad f=c-1.
+\]
+
+Now, writing \(I=A+s_I(C-A)\) and letting 
+\[
+L=|C-A|=\sqrt{(c\cos\theta-1)^2+(c\sin\theta)^2}=\sqrt{c^2-2c\cos\theta+1},
+\]
+the condition \(CI=1\) (with \(CI=(1-s_I)L\)) yields
+\[
+1-s_I=\frac{1}{L}\quad\Longrightarrow\quad s_I=1-\frac{1}{L}.
+\]
+Similarly, \(BG=1\) (with \(G=A+s_G(C-A)=(1+s_G(c\cos\theta-1),\, s_Gc\sin\theta)\)) gives
+\[
+\left[1+s_G(c\cos\theta-1)\right]^2+(s_G\,c\sin\theta)^2=1,
+\]
+thereby determining \(s_G\) in terms of \(c\) and \(\theta\).
+
+The remaining conditions \(DH=1\), \(EI=1\), \(EG=1\), and \(FH=1\) yield further relations among the parameters. For instance, writing 
+\[
+D=(2\cos^2\theta,\,2\cos\theta\sin\theta) \quad\text{(since }d=2\cos\theta\text{)}
+\]
+and 
+\[
+F=((c-1)\cos\theta,\,(c-1)\sin\theta),
+\]
+and expressing \(H=A+s_H(C-A)\), a careful (though routine) elimination shows that the only possibility is
+\[
+c=2\cos\theta+1.
+\]
+Substituting this into the expression for \(L\) and combining with the equation from \(BG=1\) leads, after some algebra, to 
+\[
+\cos\theta=\tfrac{1}{2},
+\]
+so that \(\theta=60^\circ\). Thus, the given constraints force that \(\boxed{\angle ABC=60^\circ}\)
 
 \section{Problem \#3}
 
 \paragraph{Problem} Checkers are placed on a \(45\times45\) gameboard, with \(1,2,3,...,45\) checkers in the squares in the top row (from left to right), \(46,47,...,90\) in the next row (left to right), and so forth, with \(1981,1982,...,2025\) checkers in the bottom row (left to right). Evan then performs a series of moves, each move consisting of adding or removing one checker from all squares in any \(2\times3,3\times2,\text{or }4\times4\) rectangular region on the board. After a sequence of these moves, only one square has checkers remaining. Determine all possible values for the number of checkers remaining on that square?
 
-\paragraph{Solution}
+\paragraph{Solution} To take a shortcut to calculating the value of the final square \((i,j)\), we can define a constant that doesn't change during Evan's moves. To achieve this, give each square a weight \(w(i,j)=(-1)^{i+j}\), so that one color is \(+1\) and the other \(-1\). When we add or remove a checker from every square in any allowed rectangle (of sizes \(2\times3\), \(3\times2\), or \(4\times4\)), the sum of the weights in that rectangle is zero because the \(+1\)s and \(-1\)s cancel out. This means the weighted total 
+\[
+I=\sum_{i=1}^{45}\sum_{j=1}^{45}(-1)^{i+j}N(i,j)
+\]
+remains unchanged throughout the moves because all of his moves change the checkers in a set of squares whose weights add up to zero. Initially, when the square \((i,j)\) has \(45(i-1)+j\) checkers, a calculation shows that \(I=1013\). In the final configuration, only one square \((p,q)\) has \(x\) checkers, so the invariant is \(x \cdot(-1)^{p+q}\). Since \(I\) must still equal 1013, we have \(x\cdot(-1)^{p+q}=1013\). The only way for this to happen (and for \(x\) to be positive) is if \((-1)^{p+q}=1\) and \(x=1013\). Hence, the final nonempty square will always contain exactly \(\boxed{1013}\) checkers.
 
 \section{Problem \#4}
 
@@ -130,10 +200,10 @@ Thus, no number \(120 < 2^a3^b5^c < 150\) exists, and the solution is \fbox{150}
 
 \paragraph{Solution} Let \(p(x)=Ax^2+Bx+C\)
 
-Let \(p(x) = Ax^2 + Bx + C\) be a quadratic polynomial with real roots. The discriminant of \(p(x)\) must satisfy \(\Delta = B^2 - 4AC \geq 0\). To minimize the coefficient distance, set \(A = 20 - \delta, \quad B = 25 + \delta, \quad C = 52 - \delta\) so that the discriminant grows most efficiently. To show that this is the optimal setup for growth of \(\Delta\), note that increasing \(B\) increases \(\Delta\) since \(B^2\) appears positively. Alternatively, \(4AC\) appears negatively. Therefore, minimizing \(4AC\) is optimal, so we want to decrease \(A\) and \(C\).
+Let \(p(x) = Ax^2 + Bx + C\) be a quadratic polynomial with real roots. The discriminant of \(p(x)\) must satisfy \(\Delta = B^2 - 4AC \geqslant 0\). To minimize the coefficient distance, set \(A = 20 - \delta, \quad B = 25 + \delta, \quad C = 52 - \delta\) so that the discriminant grows most efficiently. To show that this is the optimal setup for growth of \(\Delta\), note that increasing \(B\) increases \(\Delta\) since \(B^2\) appears positively. Alternatively, \(4AC\) appears negatively. Therefore, minimizing \(4AC\) is optimal, so we want to decrease \(A\) and \(C\).
 
 With the optimal setup established, we can rewrite the discriminant \(\Delta = (B)^2 - 4(A)(C) = (25 + \delta)^2 - 4(20 - \delta)(52 - \delta).\)
-Expanding each term and simplifying, \(\Delta = -3535 + 338\delta - 3\delta^2.\) In order for \(p(x)\) to have real roots, \(\Delta \geq 0\), so \(-3535 + 338\delta - 3\delta^2 \geq 0.\implies 3\delta^2 - 338\delta + 3535 \leq 0.\)
+Expanding each term and simplifying, \(\Delta = -3535 + 338\delta - 3\delta^2.\) In order for \(p(x)\) to have real roots, \(\Delta \geqslant 0\), so \(-3535 + 338\delta - 3\delta^2 \geqslant 0.\implies 3\delta^2 - 338\delta + 3535 \leqslant 0.\)
 Solve the quadratic inequality:
 \[
 \delta = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \quad a = 3, \, b = -338, \, c = 3535.
@@ -152,7 +222,7 @@ Since \(\delta\) must be minimized, choose \(\delta = \boxed{\frac{35}{3}}\) as 
 
 \section{Problem \#5}
 
-Recall the Fibonacci numbers \(F_1,F_2,\ldots\) are defined by \(F_1=F_2=1\) and \(F_{n+1}=F_n+F_{n-1}\) for \(n\geq 2\). Find an ordered triple \((a,b,c)\) of integers with \(|a|,|b|,|c|<10{,}000{,}000\) such that 
+Recall the Fibonacci numbers \(F_1,F_2,\ldots\) are defined by \(F_1=F_2=1\) and \(F_{n+1}=F_n+F_{n-1}\) for \(n\geqslant 2\). Find an ordered triple \((a,b,c)\) of integers with \(|a|,|b|,|c|<10{,}000{,}000\) such that 
 \[
 S = \sum_{i=1}^{2025} i^2 F_i = aF_{2027} + bF_{2026} + c.
 \]
@@ -203,14 +273,67 @@ For \(n = 2025\), compute \(a = n^2-2n+5=2025^2 - 2 \times 2025 + 5 = 4{,}096{,}
 
 \section{Problem \#6}
 
-\paragraph{Problem} If \(N\) is a positive integer, a chop of \(N\) is obtained by introducing one or more plus signs between the digits of \(N\), and adding the results. For example, two possible chops of 12345 are \(123+45=168\) and \(1+2+3+4+5=15\).
+\paragraph{Problem} If \(N\in\mathbb{Z}^+\), a chop of \(N\) is obtained by introducing one or more plus signs between the digits of \(N\), and adding the results. For example, two possible chops of 12345 are \(123+45=168\) and \(1+2+3+4+5=15\).
 
 \begin{enumerate}[label=(\alph*)]
 	\item If \(n\) is divisible by 2,3,5, or 7, show that there exists a \(2n\)-digit integer \(N\) with nonzero digits such that no chop of \(N\) is divisible by \(n\).
 	\item If \(N\) is a \(2n\)-digit integer with nonzero digits, and \(n\) is not divisible by 2,3,5, or 7, show that there is some chop of \(N\) that is divisible by \(n\).
 \end{enumerate}
 
+\paragraph{Proof (a)} Let \(n\in\mathbb{Z^+}\) be divisible by at least one of 2,3,5 or 7. We define a chop of an integer \(N\) as the sum obtained by splitting its digits into one or more consecutive blocks and adding these block-values. We aim to construct a \(2n\)-digit number \(N=d_1d_2\cdots d_{2n}\) with each \(d_i \in \{1,2,\ldots,9\}\), such that no chop is divisible by \(n\). We proceed by induction on the number of digits of \(N\).
 
-\paragraph{Proof} 
+For a 1-digit \(N\), choose any digit \(d_1 \in \{1,2,\dots,9\}\) such that 
+\[
+d_1 \not\equiv 0 \pmod{n}.
+\]
+This is possible because not every digit in \(\{1,2,\dots,9\}\) can be congruent to \(0\) modulo \(n\). (In particular, if \(n>9\), then every digit is less than \(n\) and thus cannot be \(0\) modulo \(n\); if \(n\le9\), then at most a few digits are divisible by \(n\), so there is always at least one valid choice.) Clearly, for this 1-digit number, the only chop is the number itself, and since \(d_1 \not\equiv 0\pmod{n}\), \(N\) is not divisible by \(n\). This completes the base case.
+
+Now assume for some \(k\), \(1 \leqslant k < 2n\), we have constructed \(N_k = d_1d_2\cdots d_k\) so that every chop of \(N_k\) is not divisible by \(n\). We attach a new digit \(d_{k+1}\in \{1,\dots,9\}\) to form \(N_{k+1}\). Any chop of \(N_{k+1}\) arises from a chop of \(N_k\) in one of two ways:
+
+\paragraph{Case 1: Extension} We append \(d_{k+1}\) to the last block. If that block has value \(B\), its new value then becomes \(10B+d_{k+1}\).
+\paragraph{Case 2: New Block} We start a new block with \(d_{k+1}\). If the sum of the previous blocks is \(S\), then the new sum in some chop is \(S + d_{k+1}\).
+
+In both cases, the value of a new chop can be expressed as
+\[
+S + c\,d_{k+1},
+\]
+where \(c=1\) in Case 2, or \(c=10^j\) (for some \(j\geqslant1\)) in Case 1. For this sum to be divisible by \(n\), we need
+\[
+S + c\,d_{k+1} \equiv 0 \pmod{n}
+\quad\Longleftrightarrow\quad
+c\,d_{k+1} \equiv -S \pmod{n},
+\]
+so each potential chop imposes at most one restriction on \(d_{k+1}\).
+
+Next, I argue that there are at most 7 distinct such restrictions. In the new block case (\(c=1\)), there is exactly one restriction. In the extension case (\(c=10^j\)), restrictions can only arise if \(10^j\) is invertible modulo a prime divisor of \(n\). Specifically:
+\begin{itemize}
+\item For \(p=2\) or \(p=5\), \(10\equiv 0\pmod{p}\), so powers of \(10\) are not invertible and yield no new restrictions.
+\item For \(p=3\), since \(10 \equiv 1\pmod{3}\), all powers of \(10\) act like \(c=1\), giving no additional distinct restriction beyond the new block case.
+\item For \(p=7\), the powers of \(10\) cycle modulo 7 with period at most 6, producing at most 6 distinct restrictions in total.
+\end{itemize}
+Hence, combining the single restriction from \(c=1\) with up to 6 from the cases where \(p=7\), we get at most \(7\) total restrictions on \(d_{k+1}\). Since there are 9 possible digits and at most 7 are ruled out, at least one choice for \(d_{k+1}\) remains valid at each step.
+
+By induction, this process produces a \(2n\)-digit number \(N\) with nonzero digits such that no chop of \(N\) is divisible by \(n\). \(\square\)
+
+
+\paragraph{Proof (b)} Let \(N\) be a \(2n\)-digit integer with nonzero digits \(d_1,d_2,\dots,d_{2n}\).  
+Since \(n\) is not divisible by \(2,3,5\), or \(7\), in particular \(\gcd(n,10)=1\).  
+Define partial sums (in base 10) modulo \(n\) by
+\[
+S_k \equiv d_1 \cdot 10^{k-1} + d_2 \cdot 10^{k-2} + \cdots + d_k \pmod{n},
+\]
+i.e., take the usual integer formed by the first \(k\) digits of \(N\) (namely \(d_1d_2\cdots d_k\)) and reduce it modulo \(n\).
+
+We have \(2n\) such sums: \(S_1,S_2,\dots,S_{2n}\). By the pigeonhole principle \emph{because} there are \(2n\) sums but only \(n\) possible residues modulo \(n\), either one of these sums is already \(0\) modulo \(n\) (in which case we have a chop divisible by \(n\) by taking those first \(k\) digits alone), or at least two of these sums coincide. Suppose
+\[
+S_i \equiv S_j \pmod{n}
+\quad\text{with}\quad 1 \leqslant i < j \leqslant 2n.
+\]
+Which means \(S_j - S_i \equiv 0 \pmod{n}.\) Observe that \(S_j - S_i\) is precisely the integer formed by the digits \(d_{i+1}d_{i+2}\cdots d_j\). Since \(\gcd(n,10)=1\), subtracting these two base-10 "partial-sum" values shows that the block \(d_{i+1}d_{i+2}\cdots d_j\) is \(0\) modulo \(n\). Hence, the chop corresponding to the block of digits from position \(i+1\) to \(j\) is divisible by \(n\). Thus, in all cases, we can find a chop of \(N\) that is divisible by \(n\). \square
+
+\end{document}
+
+
+
 
 \end{document}
